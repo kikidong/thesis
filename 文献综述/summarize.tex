@@ -1,0 +1,104 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[ urlcolor = blue, colorlinks = true, citecolor = black, linkcolor = black]{hyperref}
+\usepackage{graphicx}
+%\usepackage{xltxtra}
+\usepackage{fancybox}
+\usepackage{bibentry}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{framed,lipsum}
+\usepackage[BoldFont,SlantFont,CJKnumber]{xeCJK}
+\usepackage{CJKnumb}
+\usepackage[bf, tiny]{titlesec}
+    \titleformat{\section}{\bf}{\thesection{}. }{0.24em}{}
+    \titlespacing{\section}{0cm}{*1.5}{*1.1}
+\makeatletter    
+\renewenvironment{thebibliography}[1]{%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth%
+            \advance\leftmargin\labelsep%
+            \@openbib@code%
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty%
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy%
+      \clubpenalty4000%
+      \@clubpenalty \clubpenalty%
+      \widowpenalty4000%
+      \sfcode`\.\@m}%
+     {\def\@noitemerr%
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}%
+\makeatother
+%\setlength{\parindent}{24pt}
+% \setlength{\parskip}{3pt plus1pt minus2pt}
+% \setlength{\baselineskip}{20pt plus2pt minus1pt}
+% \setlength{\textheight}{21.5true cm}
+ \setlength{\textwidth}{15true cm}
+%  \setlength{\headsep}{10truemm}
+  \setlength{\oddsidemargin}{0.26cm}   % 左边 3.25cm=0.71+2.54
+\setlength{\evensidemargin}{0.26cm}
+
+\newcommand{\SONG}[1]{%
+{%
+#1%
+}}%
+\newcommand{\cjk}[1]{%
+{%
+#1%
+}}%
+\renewcommand{\arraystretch}{1.8}
+\renewcommand{\contentsname}{ Contents (Full Text Appended)}
+\title{Lexical Analyse Based Translation Program}
+\author{microcai}
+%！！重要！！%这是防止 - -- --- 等特殊符号失去在 LaTeX 下原油的意义。
+\defaultfontfeatures{Mapping=tex-text}
+\XeTeXlinebreaklocale{en-us}
+%\setmainfont{Times New Roman}
+\setCJKmainfont{SimSun}
+\setCJKfamilyfont{song}{SimSun}
+\punctstyle{CCT}
+\usepackage{slashbox}
+\newenvironment{CJKenumerate}{%
+\newcounter{listcount}%
+\begin{list}{\stepcounter{listcount}({\arabic{listcount}})}{}%
+}{\end{list}}
+ 
+
+\begin{document}
+\fontsize{14.8}{14.8}
+\textbf{浙江理工大学信电学院通信工程专业本科毕业论文文献综述}
+\begin{framed}
+\vspace{-2em}
+\begin{center}
+\hspace*{-1em}
+\begin{tabular*}{15true cm}{c|c|c|c}
+     \multicolumn{1}{c|}{论文题目} & \multicolumn{3}{c}{\textbf{{基于语义分析的自动翻译}}} \\\hline
+      \multicolumn{1}{c|}{\hspace*{2em}姓\quad{}\quad{}名\hspace*{2em}} & \multicolumn{1}{c|}{\hspace*{4em}董璐琦\hspace*{4em}} & \multicolumn{1}{c|}{学\quad\quad{}号}& \multicolumn{1}{c}{\hspace*{1em}E07680102} \\ \hline
+      \multicolumn{1}{c|}{班\quad{}\quad{}级} & \multicolumn{1}{c|}{ 07{通信}(1){班}} & \multicolumn{1}{c|}{{指导老师}} & \multicolumn{1}{c}{{{黄静}}}  \\\hline
+\end{tabular*}
+\end{center}
+
+\begin{onehalfspace}
+%\parindent 2em
+\input {summarize_body}%正文和小结
+\section{参考文献}
+\bibliography{../refrence}
+\bibliographystyle{plain}
+\end{onehalfspace}
+
+\begin{center}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}c|c|c|c|c|c}
+    \multicolumn{1}{l}{\SONG{成绩}} & \multicolumn{5}{l}{} \\
+	\multicolumn{6}{c}{\makecell{\\}} \\
+	\multicolumn{2}{l}{\SONG{指导教师审阅意见} } 	& \multicolumn{4}{l}{}  \\
+	\multicolumn{6}{l}{} \\
+	\multicolumn{4}{c}{} & \multicolumn{2}{l}{\SONG{指导教师签名\underline{\hspace{3cm}}}} \\
+	\multicolumn{6}{r}{ \SONG{年}\quad \SONG{月}\quad \SONG{日}}
+\end{tabular*}
+\end{center}
+\end{framed}
+\end{document}
